@@ -5,10 +5,10 @@ using playwrightExample.Core.Browser;
 
 namespace playwrightExample.Test.UI
 {
-    //[TestFixture]
+    [TestFixture]
     public class OpenPageTests : BaseTest
     {
-        //[Test]
+        [Test]
         public async Task Open_Page_With_Playwright()
         {
             var page = (IPage)Driver;
@@ -16,6 +16,8 @@ namespace playwrightExample.Test.UI
             await page.GotoAsync("https://automationexercise.com/");
 
             Assert.That(page.Url, Does.Contain("automationexercise.com"));
+
+            await page.CloseAsync();
         }
     }
 }

@@ -13,8 +13,8 @@ namespace playwrightExample.Test.API
         {
             var response = await ApiClient.Get("/productsList");
             var body = await response.Content.ReadAsStringAsync();
-            string json = XmlToJsonConverter.ConvertXmlToJson(body);
-            Console.WriteLine(json);
+            //string json = XmlToJsonConverter.ConvertXmlToJson(body);
+            //Console.WriteLine(json);
             Assert.That((int)response.StatusCode, Is.EqualTo(200));
         }
     }

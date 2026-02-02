@@ -20,7 +20,7 @@ namespace playwrightExample.Core.Api
         {
             return await _client.GetAsync(endpoint);
         }
-
+ 
         public async Task<HttpResponseMessage> Post<T>(string endpoint, T body)
         {
             var json = JsonSerializer.Serialize(body);
