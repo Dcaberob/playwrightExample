@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace playwrightExample.Core.Api
 {
-   public class ApiClient
+    public class ApiClient
     {
         private readonly HttpClient _client;
 
@@ -20,12 +20,18 @@ namespace playwrightExample.Core.Api
         {
             return await _client.GetAsync(endpoint);
         }
- 
+
         public async Task<HttpResponseMessage> Post<T>(string endpoint, T body)
         {
             var json = JsonSerializer.Serialize(body);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
+            return await _client.PostAsync(endpoint, content);
+        }
+
+        public async Task<HttpResponseMessage> PostForm(string endpoint, Dictionary<string, string> data)
+        {
+            var content = new FormUrlEncodedContent(data);
             return await _client.PostAsync(endpoint, content);
         }
     }

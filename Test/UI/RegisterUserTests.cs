@@ -101,9 +101,9 @@ namespace playwrightExample.Test.UI
             var createAccountBtn = _page.Locator("//button[@data-qa='create-account']");
             await createAccountBtn.ClickAsync(new LocatorClickOptions { Button = MouseButton.Left });
             
-            await _page.WaitForTimeoutAsync(5000);
+            await _page.WaitForTimeoutAsync(1000);
 
-            //Assert.That(_page.Url, Does.Contain("automationexercise.com/login"));
+            Assert.That(_page.Url, Does.Contain("https://automationexercise.com/account_created"));
         }
 
         [TearDown]
